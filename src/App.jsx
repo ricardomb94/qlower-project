@@ -1,5 +1,3 @@
-// import 'fontsource-roboto'
-
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
@@ -14,22 +12,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import logo from './assets/media/logo.png';
 import { makeStyles } from '@material-ui/core/styles';
-
-// import CardActions from '@material-ui/core/CardActions';
-
-// import CardHeader from '@material-ui/core/CardHeader';
-
-
-
-
-
-
-
-
-
-// import StarIcon from '@material-ui/icons/StarBorder';
-// import Box from '@material-ui/core/Box';
-
 
 const useStyles = makeStyles((theme) => ({
   '@global': {
@@ -50,9 +32,7 @@ const useStyles = makeStyles((theme) => ({
   toolbarTitle: {
     flexGrow: 1,
   },
-  // image:{
-  //   padding:'26 126'
-  // },
+
   link: {
     margin: theme.spacing(1, 1.5),
   },
@@ -63,19 +43,13 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor:
       theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[700],
   },
-  // Card: {
-  //   boxShadow:' 0px 0px 10px rgb(0 0 0 / 25%)',
-
-  // },
   mainContainer:{
     padding: '23px',
     textAlign:"center",
-    // color: '#081244',
     boxShadow:' 0px 0px 10px rgb(0 0 0 / 25%)',
     borderRadius: '20px'
   },
   cardTitle: {
-    // fontSize:'26px',
     fontStyle: 'normal',
     fontWeight: 'bold',
     fontSize: '35px',
@@ -87,41 +61,6 @@ const useStyles = makeStyles((theme) => ({
     margin: '0 0 16px 0'
   }
 }));
-
-// const tiers = [
-//   // {
-//   //   title: 'Free',
-//   //   price: '0',
-//   //   description: ['10 users included', '2 GB of storage', 'Help center access', 'Email support'],
-//   //   buttonText: 'Sign up for free',
-//   //   buttonVariant: 'outlined',
-//   // },
-//   // {
-//   //   title: 'Pro',
-//   //   subheader: 'Most popular',
-//   //   price: '15',
-//   //   description: [
-//   //     '20 users included',
-//   //     '10 GB of storage',
-//   //     'Help center access',
-//   //     'Priority email support',
-//   //   ],
-//   //   buttonText: 'Get started',
-//   //   buttonVariant: 'contained',
-//   // },
-//   // {
-//   //   title: 'Enterprise',
-//   //   price: '30',
-//   //   description: [
-//   //     '50 users included',
-//   //     '30 GB of storage',
-//   //     'Help center access',
-//   //     'Phone & email support',
-//   //   ],
-//   //   buttonText: 'Contact us',
-//   //   buttonVariant: 'outlined',
-//   // },
-// ];
 
 
 export default function App() {
@@ -151,7 +90,7 @@ export default function App() {
         </Toolbar>
       </AppBar>
       {/* Hero unit */}
-      <Container  maxWidth="md" boxShadow={8}>
+      <Container  maxWidth="md">
         <Grid>
           <Card className={classes.mainContainer}>
             <Typography variant="h3" className={classes.cardTitle} >

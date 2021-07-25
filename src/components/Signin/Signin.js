@@ -22,14 +22,14 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexWrap: 'wrap',
   },
-  // margin: {
-  //   margin: theme.spacing(1),
-  // },
-  //  withoutLabel: {
-  //    marginTop: theme.spacing(3),
-  //  },
   textField: {
     width: '25ch',
+  },
+  submit:{
+    marginTop: '20px'
+  },
+  link: {
+    marginTop: '10px, 15px',
   },
 }));
 
@@ -55,7 +55,7 @@ const Signin = () => {
 
   return (
     <div>
-      <FormGroup>
+      <FormGroup  style ={{width: '50%', margin:'0 auto'}}>
        <FormControl className={classes.margin} variant="outlined">
           <InputLabel htmlFor="outlined-adornment-flag">(exemple +33 6 xx xx xx xx)</InputLabel>
           <OutlinedInput
@@ -73,7 +73,7 @@ const Signin = () => {
        </FormControl>
        </FormGroup>
        <br></br>
-       <FormGroup>
+       <FormGroup  style ={{width: '50%', margin:'0 auto'}}>
        <FormControl className={classes.margin} variant="outlined">
            <InputLabel htmlFor="outlined-adornment-password"> Mot de passe</InputLabel>
           <OutlinedInput
@@ -98,23 +98,25 @@ const Signin = () => {
           />
         </FormControl>
         </FormGroup>
-        <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          color="primary"
-          className={classes.submit}
-        >
-          Se connecter
-        </Button>
-        <Grid container>
-          <Grid item xs>
-            <Link href="#" variant="body2">
+          <Grid>
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+            >
+              Se connecter
+            </Button>
+          </Grid>
+
+        <Grid>
+          <Grid item>
+            <Link href="#" variant="body2" className={classes.linkItems}>
               Mot de passe oublié?
             </Link>
           </Grid>
           <Grid item>
-            <Link href="#" variant="body2">
+            <Link href="#" variant="body2" className={classes.linkItems}>
               {"Vous n'avez pas de compte? S'inscrire"}
             </Link>
           </Grid>
