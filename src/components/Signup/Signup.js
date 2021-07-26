@@ -13,7 +13,7 @@ import {
   // Box
 } from '@material-ui/core'
 import{ Visibility, VisibilityOff } from '@material-ui/icons';
-
+import Checkbox from '../Checkbox/Checkbox';
 import {
   IconFlagFR,
 } from 'material-ui-flags';
@@ -136,6 +136,7 @@ const Signup = () => {
             </Link>
           </Grid>
         </Grid>
+        <Checkbox/>
     </div>
   )
 }
