@@ -52,8 +52,19 @@ const Signup = () => {
             Créez un compte
         </Typography>
       </Grid>
-      <FormGroup  style ={{width: '85%', margin:'0 auto'}}>
-
+      <FormGroup  style ={{width: '85%', margin:'0 auto', }}>
+      <TextField
+          style ={{marginBottom:'16px'}}
+          label='Nom'
+          placeholder='Votre nom'
+          variant="outlined"
+         />
+      <TextField
+          style ={{marginBottom:'16px'}}
+          label='Prénom'
+          placeholder='Votre prénom'
+          variant="outlined"
+         />
        <FormControl className={classes.margin} variant="outlined">
           <InputLabel htmlFor="outlined-adornment-flag">(exemple +33 6 xx xx xx xx)</InputLabel>
           <OutlinedInput
@@ -72,14 +83,20 @@ const Signup = () => {
        </FormGroup>
        <br></br>
        <FormGroup  style ={{width: '85%', margin:'0 auto'}}>
+       <TextField
+          style ={{marginBottom:'16px'}}
+          label='E-mail'
+          placeholder='Votre e-mail'
+          variant="outlined"
+         />
        <FormControl className={classes.margin} variant="outlined">
            <InputLabel htmlFor="outlined-adornment-password"> Mot de passe</InputLabel>
           <OutlinedInput
             id="outlined-adornment-password"
-            type={values.showPassword ? 'text' : 'password'}
+            type={values.email ? 'text' : 'password'}
             value={values.password}
             // placeholder='Mot de Passe'
-            onChange={handleChange('password')}
+            onChange={handleChange('email')}
             endAdornment={
               <InputAdornment position="end">
                 <IconButton
@@ -103,7 +120,7 @@ const Signup = () => {
               color="primary"
               className={classes.submit}
             >
-              Se connecter
+              Créer mon compte
             </Button>
           </Grid>
 
