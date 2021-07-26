@@ -9,7 +9,7 @@ import {
   Link,
   OutlinedInput,
   Typography,
-  MaterialLink
+  TextField,
   // Box
 } from '@material-ui/core'
 import{ Visibility, VisibilityOff } from '@material-ui/icons';
@@ -20,7 +20,7 @@ import {
 import React from 'react'
 import useStyles from './styles'
 
-const Signin = () => {
+const Signup = () => {
   const classes = useStyles();
   const [values, setValues] = React.useState({
     tel: '',
@@ -45,14 +45,15 @@ const Signin = () => {
 
       <Grid>
         <Typography variant="h3" className={classes.cardTitle} >
-            Profitez de Qlower, l'assistant gestion locative intelligent !
+            Devenez un membre Qlower !
         </Typography>
 
         <Typography variant="subtitle2" component='p' style ={{marginBottom:'10px'}} >
-            Connectez-vous à votre compte
+            Créez un compte
         </Typography>
       </Grid>
-      <FormGroup  style ={{width: '60%', margin:'0 auto'}}>
+      <FormGroup  style ={{width: '85%', margin:'0 auto'}}>
+
        <FormControl className={classes.margin} variant="outlined">
           <InputLabel htmlFor="outlined-adornment-flag">(exemple +33 6 xx xx xx xx)</InputLabel>
           <OutlinedInput
@@ -70,7 +71,7 @@ const Signin = () => {
        </FormControl>
        </FormGroup>
        <br></br>
-       <FormGroup  style ={{width: '60%', margin:'0 auto'}}>
+       <FormGroup  style ={{width: '85%', margin:'0 auto'}}>
        <FormControl className={classes.margin} variant="outlined">
            <InputLabel htmlFor="outlined-adornment-password"> Mot de passe</InputLabel>
           <OutlinedInput
@@ -101,7 +102,6 @@ const Signin = () => {
               variant="contained"
               color="primary"
               className={classes.submit}
-              Link
             >
               Se connecter
             </Button>
@@ -123,4 +123,4 @@ const Signin = () => {
   )
 }
 
-export default Signin
+export default Signup
