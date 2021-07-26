@@ -124,7 +124,7 @@ const Signup = () => {
             </Button>
           </Grid>
 
-        <Grid>
+        {/* <Grid>
           <Grid item>
             <Link href="#" variant="body2" className={classes.linkItems}>
               Mot de passe oublié?
@@ -135,7 +135,7 @@ const Signup = () => {
               {"Vous n'avez pas de compte? S'inscrire"}
             </Link>
           </Grid>
-        </Grid>
+        </Grid> */}
         <Checkbox/>
     </div>
   )
