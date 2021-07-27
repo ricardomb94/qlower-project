@@ -7,8 +7,8 @@ import Container from '@material-ui/core/Container';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import React from 'react';
-import Signin from './components/Signin/Signin'
- import Signup from './components/Signup/Signup'
+import {BrowserRouter as Router} from 'react-router-dom'
+import Signup from './components/Signup/Signup'
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import logo from './assets/media/logo.png';
@@ -16,9 +16,10 @@ import useStyles from './styles'
 
 export default function App() {
   const classes = useStyles();
+  // const handleSubmit =
 
   return (
-    <React.Fragment>
+    <Router>
       <CssBaseline />
       <AppBar position="static" color="default" elevation={0} className={classes.appBar}>
         <Toolbar className={classes.toolbar}>
@@ -34,7 +35,13 @@ export default function App() {
               <Button href="#" color="primary" variant="contained" className={classes.link}>
                 Devenir membre
               </Button>
-              <Button href="#" color="primary" variant="outlined" className={classes.link}>
+              <Button
+              href="#"
+              color="primary"
+              variant="outlined"
+              className={classes.link}
+              onSubmit={(e)=>{e.preventDefault(); alert('you hit submit button')}}
+              >
                 Déja membre
               </Button>
           </ButtonGroup>
@@ -51,6 +58,6 @@ export default function App() {
 
         </Grid>
       </Container>
-    </React.Fragment>
+    </Router>
   );
 }

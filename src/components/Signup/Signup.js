@@ -8,11 +8,11 @@ import {
   InputLabel,
   Link,
   OutlinedInput,
-  Typography,
   TextField,
-  // Box
+  Typography
 } from '@material-ui/core'
 import{ Visibility, VisibilityOff } from '@material-ui/icons';
+
 import Checkbox from '../Checkbox/Checkbox';
 import {
   IconFlagFR,
@@ -52,7 +52,7 @@ const Signup = () => {
             Créez un compte
         </Typography>
       </Grid>
-      <FormGroup  style ={{width: '85%', margin:'0 auto', }}>
+      <FormGroup  style ={{width: '65%', margin:'0 auto', }}>
       <TextField
           style ={{marginBottom:'16px'}}
           label='Nom'
@@ -82,7 +82,7 @@ const Signup = () => {
        </FormControl>
        </FormGroup>
        <br></br>
-       <FormGroup  style ={{width: '85%', margin:'0 auto'}}>
+       <FormGroup  style ={{width: '65%', margin:'0 auto'}}>
        <TextField
           style ={{marginBottom:'16px'}}
           label='E-mail'

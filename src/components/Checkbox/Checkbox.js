@@ -1,26 +1,26 @@
-import {Box, Checkbox, FormControlLabel, TextField}  from '@material-ui/core'
+import { Checkbox, FormControlLabel, Link }  from '@material-ui/core'
 import React, { useState } from 'react'
-
 
 const CheckboxExample = () => {
   const [checked, setChecked]= useState(true)
   return (
-    <Box>
+    <>
       <FormControlLabel
         control={
           <Checkbox
           checked={checked}
-          // icon={<Delete />}
-          // checkedIcon={<Save />}
           onChange={(e)=>setChecked(e.target.checked)}
           inputProps={{
             'aria-label': 'secondary checkbox'
           }}
         />
         }
-      label='En cochant cette case vous certifiez avoir lu les CGV'
+      label='En cochant cette case vous certifiez avoir lu les'
     />
-  </Box>
+
+    <Link  href="#" variant="body2">{"conditions générales de vente"}</Link>
+
+</>
   )
 }
 
