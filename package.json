@@ -12,6 +12,7 @@
     "axios": "^0.21.1",
     "bcrypt": "^5.0.1",
     "fontsource-roboto": "^4.0.0",
+    "json-server": "^0.16.3",
     "material-ui-flags": "^1.2.4",
     "material-ui-phone-number": "^2.2.6",
     "react": "^17.0.2",
@@ -47,8 +48,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "json-server": "^0.16.3"
   }
 }
