@@ -93,6 +93,7 @@ const Signup = () => {
           InputProps={{ name: 'lastname' }}
           onChange={e => setLastname(e.target.value)}
           variant="outlined"
+          required
          />
       <TextField
           style ={{marginBottom:'16px'}}
@@ -124,7 +125,7 @@ const Signup = () => {
        <br></br>
        {/* <FormGroup  style ={{width: '65%', margin:'0 auto'}}> */}
        <TextField
-          style ={{marginBottom:'16px', marginTop:'16px'}}
+          style ={{marginBottom:'16px', marginTop:'2px'}}
           label='E-mail'
           placeholder='Votre e-mail'
           value={email}
