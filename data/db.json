@@ -1,0 +1,35 @@
+{
+    "users":[
+        {
+            "id":1,
+            "firstname": "Admin",
+            "lastname": "Alan",
+            "email": "admin@example.com",
+            "phone": "0646461252",
+            "password": "1234"
+        },
+        {
+            "id": 2,
+            "firstname": "Abi",
+            "lastname": "MBK",
+            "email": "abi@gmail.com",
+            "phone": "0646461253",
+            "password": "12345"
+          },
+          {
+            "id": 3,
+            "firstname": "Carol",
+            "lastname": "Michelle",
+            "email": "carol@gmail.com",
+            "phone": "0646461254",
+            "password": "23456"
+          },
+          {
+            "id": 4,
+            "firstname": "Abi",
+            "lastname": "Ayden",
+            "email": "abi@gmail.com",
+            "password": "123456"
+          }
+    ]
+}

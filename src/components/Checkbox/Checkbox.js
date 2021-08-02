@@ -2,7 +2,7 @@ import { Checkbox, FormControlLabel, Link }  from '@material-ui/core'
 import React, { useState } from 'react'
 
 const CheckboxExample = () => {
-  const [checked, setChecked]= useState(true)
+  const [checked, setChecked]= useState(false)
   return (
     <>
       <FormControlLabel

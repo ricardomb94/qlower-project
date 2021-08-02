@@ -6,7 +6,7 @@ import {
   IconButton,
   InputAdornment,
   InputLabel,
-  Link,
+  // Link,
   OutlinedInput,
   TextField,
   Typography
@@ -23,6 +23,8 @@ import useStyles from './styles'
 const Signup = () => {
   const classes = useStyles();
   const [values, setValues] = React.useState({
+    lastname:'',
+    firstname:'',
     tel: '',
     password: '',
     showPassword: false,
@@ -31,6 +33,7 @@ const Signup = () => {
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
   };
+  
 
   const handleClickShowPassword = () => {
     setValues({ ...values, showPassword: !values.showPassword });
@@ -39,6 +42,10 @@ const Signup = () => {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    console.log('VALUES', values);
+  }
 
   return (
     <div>
@@ -52,23 +59,33 @@ const Signup = () => {
             Créez un compte
         </Typography>
       </Grid>
-      <FormGroup  style ={{width: '65%', margin:'0 auto', }}>
+      <FormGroup  
+        style ={{width: '65%', margin:'0 auto', }}
+        onSubmit={handleSubmit}
+        >
       <TextField
           style ={{marginBottom:'16px'}}
           label='Nom'
           placeholder='Votre nom'
+          name='lastname'
+          value={values.lastname}
+          onChange={handleChange('lastname')}
           variant="outlined"
          />
       <TextField
           style ={{marginBottom:'16px'}}
           label='Prénom'
           placeholder='Votre prénom'
+          name='firstname'
+          value={values.firstname}
+          onChange={handleChange('firstname')}
           variant="outlined"
          />
        <FormControl className={classes.margin} variant="outlined">
           <InputLabel htmlFor="outlined-adornment-flag">(exemple +33 6 xx xx xx xx)</InputLabel>
           <OutlinedInput
             id="outlined-adornment-flag"
+            name='tel'
             value={values.tel}
             onChange={handleChange('tel')}
             startAdornment={
@@ -80,23 +97,25 @@ const Signup = () => {
             labelWidth={205}
           />
        </FormControl>
-       </FormGroup>
+       {/* </FormGroup> */}
        <br></br>
-       <FormGroup  style ={{width: '65%', margin:'0 auto'}}>
+       {/* <FormGroup  style ={{width: '65%', margin:'0 auto'}}> */}
        <TextField
-          style ={{marginBottom:'16px'}}
+          style ={{marginBottom:'16px', marginTop:'16px'}}
           label='E-mail'
           placeholder='Votre e-mail'
+          name='email'
           variant="outlined"
          />
        <FormControl className={classes.margin} variant="outlined">
            <InputLabel htmlFor="outlined-adornment-password"> Mot de passe</InputLabel>
           <OutlinedInput
             id="outlined-adornment-password"
-            type={values.email ? 'text' : 'password'}
+            type={values.showPassword ? 'text' : 'password'}
             value={values.password}
+            name='password'
             // placeholder='Mot de Passe'
-            onChange={handleChange('email')}
+            onChange={handleChange('password')}
             endAdornment={
               <InputAdornment position="end">
                 <IconButton
@@ -112,8 +131,7 @@ const Signup = () => {
             labelWidth={100}
           />
         </FormControl>
-        </FormGroup>
-          <Grid>
+        <Grid>
             <Button
               type="submit"
               variant="contained"
@@ -123,6 +141,8 @@ const Signup = () => {
               Créer mon compte
             </Button>
           </Grid>
+        </FormGroup>
+         
 
         {/* <Grid>
           <Grid item>
