@@ -6,34 +6,41 @@ import {
   IconButton,
   InputAdornment,
   InputLabel,
-  // Link,
   OutlinedInput,
+  Snackbar,
   TextField,
   Typography
 } from '@material-ui/core'
+import React, { Fragment, useState } from 'react'
 import{ Visibility, VisibilityOff } from '@material-ui/icons';
 
 import Checkbox from '../Checkbox/Checkbox';
 import {
   IconFlagFR,
 } from 'material-ui-flags';
-import React from 'react'
 import useStyles from './styles'
 
 const Signup = () => {
   const classes = useStyles();
   const [values, setValues] = React.useState({
-    lastname:'',
-    firstname:'',
-    tel: '',
-    password: '',
+    // lastname:'',
+    // firstname:'',
+    // tel: '',
+    // password: '',
     showPassword: false,
   });
+  const [firstname, setFirstname] = useState('')
+  const [lastname, setLastname] = useState('')
+  const [email, setEmail] = useState('')
+  const [tel, setTel] = useState('')
+  const [password, setPassword] = useState('')
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState('');
 
-  const handleChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
-  };
-  
+  // const handleChange = (prop) => (event) => {
+  //   setValues({ ...values, [prop]: event.target.value });
+  // };
+
 
   const handleClickShowPassword = () => {
     setValues({ ...values, showPassword: !values.showPassword });
@@ -44,11 +51,26 @@ const Signup = () => {
   };
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.log('VALUES', values);
   }
 
+
+  const onSnackbarClose = (e, reason) => {
+    if (reason === 'clickaway') {
+    return;
+    }
+
+    setSnackbarOpen(false);
+    setSnackbarMessage('');
+  };
+
+  const onCreate = () => {
+  setSnackbarOpen(true);
+  setSnackbarMessage(`Bienvenue ${firstname} ${lastname}. Merci d'avoir choisi Qlower `);
+
+  };
+
   return (
-    <div>
+    <Fragment>
 
       <Grid>
         <Typography variant="h3" className={classes.cardTitle} >
@@ -59,7 +81,7 @@ const Signup = () => {
             Créez un compte
         </Typography>
       </Grid>
-      <FormGroup  
+      <FormGroup
         style ={{width: '65%', margin:'0 auto', }}
         onSubmit={handleSubmit}
         >
@@ -67,27 +89,28 @@ const Signup = () => {
           style ={{marginBottom:'16px'}}
           label='Nom'
           placeholder='Votre nom'
-          name='lastname'
-          value={values.lastname}
-          onChange={handleChange('lastname')}
+          value={lastname}
+          InputProps={{ name: 'lastname' }}
+          onChange={e => setLastname(e.target.value)}
           variant="outlined"
          />
       <TextField
           style ={{marginBottom:'16px'}}
           label='Prénom'
           placeholder='Votre prénom'
-          name='firstname'
-          value={values.firstname}
-          onChange={handleChange('firstname')}
+          InputProps={{ name: 'firstname' }}
+          value={firstname}
+          onChange={e => setFirstname(e.target.value)}
           variant="outlined"
          />
        <FormControl className={classes.margin} variant="outlined">
           <InputLabel htmlFor="outlined-adornment-flag">(exemple +33 6 xx xx xx xx)</InputLabel>
           <OutlinedInput
             id="outlined-adornment-flag"
-            name='tel'
-            value={values.tel}
-            onChange={handleChange('tel')}
+            // name='tel'
+            inputProps={{name:'tel'}}
+            value={tel}
+            onChange={e => setTel(e.target.value)}
             startAdornment={
               <InputAdornment position="start">
                   <IconButton>
@@ -104,7 +127,9 @@ const Signup = () => {
           style ={{marginBottom:'16px', marginTop:'16px'}}
           label='E-mail'
           placeholder='Votre e-mail'
-          name='email'
+          value={email}
+          inputProps={{name:'email'}}
+          onChange={e => setEmail(e.target.value)}
           variant="outlined"
          />
        <FormControl className={classes.margin} variant="outlined">
@@ -112,10 +137,10 @@ const Signup = () => {
           <OutlinedInput
             id="outlined-adornment-password"
             type={values.showPassword ? 'text' : 'password'}
-            value={values.password}
-            name='password'
+            value={password}
+            inputProps={{name:'password'}}
             // placeholder='Mot de Passe'
-            onChange={handleChange('password')}
+            onChange={e => setPassword(e.target.value)}
             endAdornment={
               <InputAdornment position="end">
                 <IconButton
@@ -133,6 +158,7 @@ const Signup = () => {
         </FormControl>
         <Grid>
             <Button
+              onClick={onCreate}
               type="submit"
               variant="contained"
               color="primary"
@@ -142,7 +168,7 @@ const Signup = () => {
             </Button>
           </Grid>
         </FormGroup>
-         
+
 
         {/* <Grid>
           <Grid item>
@@ -157,7 +183,13 @@ const Signup = () => {
           </Grid>
         </Grid> */}
         <Checkbox/>
-    </div>
+        <Snackbar
+          open={snackbarOpen}
+          message={snackbarMessage}
+          onClose={onSnackbarClose}
+          autoHideDuration={4000}
+        />
+    </Fragment>
   )
 }
 
